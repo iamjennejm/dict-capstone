@@ -1,61 +1,61 @@
-'use client';
 import React from "react";
-import HeaderLayout from "../layouts/HeaderLayout";
+import CompanyHeaderLayout from "../layouts/CompanyHeaderLayout";
 import FooterLayout from "../layouts/FooterLayout";
-import JobSeekerProfileImage from "../assets/images/jobseeker-user.png";
-import JobSeekerMyResumeImage from "../assets/images/jobseeker-myresume.png";
-import JobSeekerMyApplicationsImage from "../assets/images/jobseeker-myapplications.png";
+import MyjobsImage from "../assets/images/employer-myjobs.png";
+import MyApplicantsImage from "../assets/images/employer-myapplicants.png";
 import JobSeekerAccountSettingsImage from "../assets/images/account-settings.png";
 
-import { Card, Dropdown } from 'flowbite-react';
+import { Card } from "flowbite-react";
 
-export default function CompanyDashboardPage() {
-    return (
-        <>
-        <Card>
+export default function JobSeekerDashboardPage() {
+  return (
+    <>
+      <Card>
         <main className="container mx-auto">
-            <HeaderLayout /> 
+          <CompanyHeaderLayout />
+          <section className="flex justify-center items-center">
+            <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16 text-center">
+              <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
+                Company Dashboard
+              </h2>
 
-            {/* Content */}
-        
-            <section class="">
-
-                <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-                <h2 class="mb-3 text-xl font-bold text-gray-900 dark:text-white center">Job Seeker Dashboard</h2>
-                
-               
-            <div class="grid grid-cols-3 gap-2">
-                <div  class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"> 
-                    <a href="/">
-                        <img class="rounded-lg" src={JobSeekerMyResumeImage} alt="image description" />
-                    </a>
+              <div className="grid grid-cols-3 gap-2">
+                <div className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col items-center justify-center">
+                  <a href="/jobs">
+                    <img
+                      className="rounded-lg image-with-hover"
+                      src={MyjobsImage}
+                      alt="image description"
+                    />
+                  </a>
+                  <div className="mt-2">My Jobs</div>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <a href="/">
-                        <img class="rounded-lg" src={JobSeekerMyApplicationsImage} alt="image description" />
-                    </a>
+                <div className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col items-center justify-center">
+                  <a href="/jobseeker/myapplications">
+                    <img
+                      className="rounded-lg image-with-hover"
+                      src={MyApplicantsImage}
+                      alt="image description"
+                    />
+                  </a>
+                  <div className="mt-2">My Applicants</div>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <a href="/">
-                        <img class="rounded-lg" src={JobSeekerAccountSettingsImage} alt="image description" />
-                    </a>
+                <div className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col items-center justify-center">
+                  <a href="/company/settings">
+                    <img
+                      className="rounded-lg image-with-hover"
+                      src={JobSeekerAccountSettingsImage}
+                      alt="image description"
+                    />
+                  </a>
+                  <div className="mt-2">Account Settings</div>
                 </div>
+              </div>
             </div>
-            <div class="grid grid-cols-3 gap-2">
-                 <div>My Resume</div>
-                 <div>My Applications</div>
-                 <div>Account Settings</div>
-            </div>
-        </div>
-        </section>
-    
-        
-            {/* Footer */}
-            <FooterLayout />
-
+          </section>
+          <FooterLayout />
         </main>
-        </Card>
+      </Card>
     </>
-    );
-  }
-  
+  );
+}

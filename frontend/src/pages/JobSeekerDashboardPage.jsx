@@ -1,12 +1,11 @@
 import React from "react";
 import HeaderLayout from "../layouts/HeaderLayout";
 import FooterLayout from "../layouts/FooterLayout";
-import JobSeekerProfileImage from "../assets/images/jobseeker-user.png";
 import JobSeekerMyResumeImage from "../assets/images/jobseeker-myresume.png";
 import JobSeekerMyApplicationsImage from "../assets/images/jobseeker-myapplications.png";
 import JobSeekerAccountSettingsImage from "../assets/images/account-settings.png";
-
-import { Card, Dropdown } from "flowbite-react";
+import "../assets/styles/index.css";
+import { Card } from "flowbite-react";
 
 export default function JobSeekerDashboardPage() {
   return (
@@ -25,7 +24,7 @@ export default function JobSeekerDashboardPage() {
                 <div className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col items-center justify-center">
                   <a href="/jobseeker/resume">
                     <img
-                      className="rounded-lg"
+                      className="rounded-lg image-with-hover"
                       src={JobSeekerMyResumeImage}
                       alt="image description"
                     />
@@ -35,7 +34,7 @@ export default function JobSeekerDashboardPage() {
                 <div className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col items-center justify-center">
                   <a href="/jobseeker/myapplications">
                     <img
-                      className="rounded-lg"
+                      className="rounded-lg image-with-hover"
                       src={JobSeekerMyApplicationsImage}
                       alt="image description"
                     />
@@ -45,7 +44,7 @@ export default function JobSeekerDashboardPage() {
                 <div className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col items-center justify-center">
                   <a href="/">
                     <img
-                      className="rounded-lg"
+                      className="rounded-lg image-with-hover"
                       src={JobSeekerAccountSettingsImage}
                       alt="image description"
                     />

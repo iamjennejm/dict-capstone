@@ -9,7 +9,7 @@ const ImageButton = ({ image, to, buttonText }) => {
     backgroundSize: "cover",
     width: "75px",
     height: "75px",
-    border: "2px solid ",
+    border: "2px solid",
     borderRadius: "5px",
     cursor: "pointer",
     display: "flex",
@@ -37,18 +37,39 @@ const App = () => {
     justifyContent: "center",
     alignItems: "center",
   };
+
+  const buttonContainerStyle = {
+    margin: "10px",
+  };
+
   return (
     <div style={containerStyle}>
-      <div style={{ display: "flex", gap: "50px" }}>
-        <div style={{ textAlign: "center" }}>
-          <ImageButton image={buttonImage1} to="/signupjobseeker" />
-          <h4 style={{ margin: "0" }}>Job Seeker</h4>
-        </div>
+      <div
+        className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col items-center justify-center"
+        style={buttonContainerStyle}
+      >
+        <a href="/signupjobseeker">
+          <img
+            className="rounded-lg image-with-hover"
+            src={buttonImage1}
+            alt="image description"
+          />
+        </a>
+        <div className="mt-2">Job Seeker</div>
+      </div>
 
-        <div style={{ textAlign: "center" }}>
-          <ImageButton image={buttonImage2} to="/signupemployer" />
-          <h4 style={{ margin: "0" }}>Employer</h4>
-        </div>
+      <div
+        className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col items-center justify-center"
+        style={buttonContainerStyle}
+      >
+        <a href="/signupemployer">
+          <img
+            className="rounded-lg image-with-hover"
+            src={buttonImage2}
+            alt="image description"
+          />
+        </a>
+        <div className="mt-2">Employer</div>
       </div>
     </div>
   );

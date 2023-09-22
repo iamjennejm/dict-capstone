@@ -11,7 +11,7 @@ const TodoSchema = z.object({
 });
 
 todosRouter.get("/", async (req, res) => {
-  const todos = await sql`SELECT * FROM todos;`;
+ const todos = await sql`SELECT * FROM todos;`;
   res.status(200).send(todos.map((todo) => camelcaseKeys(todo)));
 });
 
@@ -40,7 +40,7 @@ todosRouter.post("/", async (req, res) => {
   }
 
   const [createdTodo] =
-    await sql`INSERT INTO todos (task, is_completed) VALUES (${newTodo.task}, ${newTodo.isCompleted}) RETURNING *`;
+    await sql `INSERT INTO todos (task, is_completed) VALUES (${newTodo.task}, ${newTodo.isCompleted}) RETURNING *`;
 
   // todos.push(newTodo);
   res.status(201).send(camelcaseKeys(createdTodo));

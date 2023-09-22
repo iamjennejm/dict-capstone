@@ -71,7 +71,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: rgb(100, 108, 255);
 }
 button:focus,
 button:focus-visible {
@@ -91,12 +91,9 @@ button:focus-visible {
   }
 }
 
-/* index.css or your custom CSS file */
 .full-width-navbar-wrapper {
   width: 100%;
 }
-
-/* For About Us*/
 
 .image-container {
   display: flex;
@@ -172,6 +169,84 @@ button:focus-visible {
   height: 70vh;
   width: 60%;
 }
-p2 {
+
+/* Sa mga icon pag hover sa dashboard*/
+
+.image-with-hover {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.image-with-hover:hover {
+  transform: translateY(5px);
+  box-shadow: 0 0 10px rgb(100, 108, 255);
+}
+/* Sa Profile settings na design*/
+.profile-settings {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
+}
+
+.profile-settings h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button[type="submit"],
+button.delete-account-button {
+  background-color: rgb(100, 108, 255);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover,
+button.delete-account-button:hover {
+  background-color: rgb(45, 55, 241);
+}
+
+button.delete-account-button {
+  background-color: #d9534f;
+  margin-left: 20px;
+}
+
+button.delete-account-button:hover {
+  background-color: #c9302c;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2px;
+  margin-top: -10px;
 }

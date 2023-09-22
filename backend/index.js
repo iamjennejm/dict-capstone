@@ -1,13 +1,50 @@
-const express = require('express'); const app = express(); 
+import express from "express";
+import morgan from "morgan";
+import cors from "cors";
+import { sql } from "../db.js";
 
-const { Pool } = require('pg'); 
-const pool = new Pool({ 
-user: 'root', host: 'localhost', database: 'ugjobs', password: 'admin123', port: 5432, 
-}); 
 
-const apiRoutes = require('./routes'); app.use('/api', apiRoutes); 
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
-const PORT = process.env.PORT || 3001; 
-app.listen(PORT, () => { 
-    console.log(`Server is running on port ${PORT}`); 
-});
+import dotenv from "dotenv";
+dotenv.config();
+
+const app = express();
+
+// middleware 
+app.use(cors());
+app.use(express.json()); // req.body
+
+// ROUTES
+
+// register and login router 
+app.use('/auth', require("./routes/jwtAuth"));
+
+// dashboard 
+app.use('/dashboard',require('./routes/dashboard'));
+
+// PORT 
+
+const server = app.listen(8081, function () {
+    const host = server.address().address;
+    const post = server.address().port;
+  
+    console.log(`App is listening at http://${host}:${post}`);
+  });
+
+app.use(
+cors({
+    origin: ["http://localhost:5173"],
+}),
+
+);
+app.use(morgan("dev"));
+app.use(express.json());
+//const port = process.env.PORT || 8000
+//app.listen(port, ()=>{console.log(`Your server is listening on ${port}`)})
+
+app.get("/", (req, res) => {
+    res.send("Hello world");
+  });
+  

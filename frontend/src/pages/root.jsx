@@ -1,25 +1,21 @@
 import React from "react";
-
 import HeaderLayout from "../layouts/HeaderLayout";
 import FooterLayout from "../layouts/FooterLayout";
 import HomePageContent from "./HomePageContent";
 
 export default function Root() {
-    return (
-        <>
-            <div className="page-content">
-    
-                {/* Header */}
-                <HeaderLayout /> 
-                
-                {/* Content */}
-                <HomePageContent /> 
+  return (
+    <>
+      <div className="page-content">
+        {/* Header */}
+        <HeaderLayout />
 
-                {/* Footer */}
-                <FooterLayout />
+        {/* Content */}
+        <HomePageContent />
 
-            </div>
+        {/* Footer */}
+        <FooterLayout />
+      </div>
     </>
-    );
-  }
-  
+  );
+}

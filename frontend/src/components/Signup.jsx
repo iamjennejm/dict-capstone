@@ -81,8 +81,8 @@ export default function Signup() {
         >
           I agree to the terms and conditions.
         </label>
-        </div>
-        <div className="flex items-center">
+      </div>
+      <div className="flex items-center">
         <input
           id="Privacy-policy"
           name="Privacy-policy"

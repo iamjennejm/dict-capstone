@@ -18,6 +18,9 @@ import AboutUsPage from "./pages/AboutUsPage";
 import SignupJobseekerPage from "./pages/SignupJobseekerPage";
 import SignupEmployerPage from "./pages/SignupEmployerPage";
 import MyApplicationPage from "./pages/MyApplicationPage";
+import ReviewPage from "./pages/ReviewPage";
+import CompanySettingsPage from "./pages/CompanySettingsPage";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -85,6 +88,11 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
+    path: "/company/settings",
+    element: <CompanySettingsPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
     path: "/company/profile",
     element: <CompanyProfilePage />,
     errorElement: <ErrorPage />,
@@ -94,6 +102,11 @@ const router = createBrowserRouter([
     element: <AboutUsPage />,
     errorElement: <ErrorPage />,
   },
+  {
+    path: "/jobseeker/profile/review",
+    element: <ReviewPage />,
+    errorElement: <ErrorPage />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -101,3 +114,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <RouterProvider router={router} />
   </React.StrictMode>
 );
+
+process.on('uncaughtException', function(err) {
+  console.log(err);
+});

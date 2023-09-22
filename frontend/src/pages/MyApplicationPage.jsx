@@ -45,7 +45,7 @@ export default function JobsPage({}) {
                       placeholder="Search Positions "
                       type="search"
                       class="border block pt-2 pr-0 pb-2 pl-10 w-full py-2
-                                pl-10 border border-gray-300 rounded-lg focus:ring-indigo-600 focus:border-indigo-600 sm:text-sm"
+                                border-gray-300 rounded-lg focus:ring-indigo-600 focus:border-indigo-600 sm:text-sm"
                     />
                   </div>
                 </div>
@@ -75,7 +75,7 @@ export default function JobsPage({}) {
                       <div class="mt-4 mr-0 mb-0 ml-0 pt-0 pr-0 pb-0 pl-14 flex items-center sm:space-x-6 sm:pl-0 sm:mt-0">
                         <a
                           href=""
-                          class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow rounded-lg"
+                          class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded=lg shadow rounded-lg"
                         >
                           Apply
                         </a>

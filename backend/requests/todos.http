@@ -6,6 +6,10 @@ GET http://localhost:8081/api/todos/1
 
 ###
 
+GET http://localhost:8081/todos/1
+
+###
+
 GET http://localhost:8081/api/todos/11231
 
 ###

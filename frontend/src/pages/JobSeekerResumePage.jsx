@@ -1,12 +1,17 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import HeaderLayout from "../layouts/HeaderLayout";
 import FooterLayout from "../layouts/FooterLayout";
 import JobSeekerProfileImage from "../assets/images/jobseeker-user.png";
-
 import { Card } from "flowbite-react";
 
 export default function JobSeekerResumePage() {
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
+
   return (
     <>
       <Card>
@@ -28,6 +33,11 @@ export default function JobSeekerResumePage() {
                         height="126"
                         src={JobSeekerProfileImage}
                         width="126"
+                      />
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleFileChange}
                       />
                     </div>
                   </div>
@@ -183,7 +193,6 @@ export default function JobSeekerResumePage() {
               </form>
             </div>
           </section>
-
           <FooterLayout />
         </main>
       </Card>

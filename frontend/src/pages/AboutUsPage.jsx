@@ -127,8 +127,6 @@ export default function AboutUsPage() {
   );
 }
 
-/*edit here carousel styles*/
-
 const carouselItemStyle = {
   background: "#f9f9f9",
   borderRadius: "10px",

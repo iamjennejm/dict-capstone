@@ -1,6 +1,7 @@
+import express from "express";
+
 const express = require('express'); 
 const router = express.Router(); 
-const pool = require('./db'); 
 
 // Create a new item 
 router.post('/items', async (req, res) => { 
