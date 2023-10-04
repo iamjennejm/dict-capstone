@@ -11,7 +11,7 @@ const TodoSchema = z.object({
 });
 
 todosRouter.get("/", async (req, res) => {
-    res.sendFile(__dirname + "/index.html");
+   
     /*const todos = await sql`SELECT * FROM todos;`;
     res.status(200).send(todos.map((todo) => camelcaseKeys(todo)));
     */

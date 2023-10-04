@@ -3,16 +3,16 @@ import { z } from "zod";
 import camelcaseKeys from "camelcase-keys";
 import { sql } from "../db.js";
 
-const todosRouter = express.Router();
+const userRouter = express.Router();
 
 const TodoSchema = z.object({
   task: z.string(),
   isCompleted: z.boolean(),
 });
 
-todosRouter.get("/:id", async (req, res) => {
+userRouter.get("/:id", async (req, res) => {
   const { id } = req.params;
-  const [foundTodo] = await sql`SELECT * FROM todos WHERE id = ${Number(id)};`;
+  const [foundTodo] = await sql`SELECT * FROM users WHERE user_id = ${Number(id)};`;
 
   if (foundTodo) {
     res.status(200).send(foundTodo);
@@ -21,7 +21,7 @@ todosRouter.get("/:id", async (req, res) => {
   }
 });
 
-todosRouter.post("/register", async (req, res) => {
+userRouter.post("/register", async (req, res) => {
   const newTodo = req.body;
   const parsedResult = TodoSchema.safeParse(newTodo);
 
@@ -41,7 +41,7 @@ todosRouter.post("/register", async (req, res) => {
   res.status(201).send(camelcaseKeys(createdTodo));
 });
 
-todosRouter.put("/:id", async (req, res) => {
+userRouter.put("/:id", async (req, res) => {
   const { id } = req.params;
   const { task, isCompleted } = req.body;
 
@@ -61,7 +61,7 @@ todosRouter.put("/:id", async (req, res) => {
   }
 });
 
-todosRouter.delete("/:id", async (req, res) => {
+userRouter.delete("/:id", async (req, res) => {
   const { id } = req.params;
 
   const [deletedTodo] = await sql`DELETE FROM todos WHERE id = ${Number(
@@ -75,4 +75,4 @@ todosRouter.delete("/:id", async (req, res) => {
   }
 });
 
-export default todosRouter;
+export default userRouter;

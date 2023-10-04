@@ -3,11 +3,11 @@ import CompanyHeaderLayout from "../layouts/CompanyHeaderLayout";
 import FooterLayout from "../layouts/FooterLayout";
 import MyjobsImage from "../assets/images/employer-myjobs.png";
 import MyApplicantsImage from "../assets/images/employer-myapplicants.png";
-import JobSeekerAccountSettingsImage from "../assets/images/account-settings.png";
+import CompanyAccountSettingsImage from "../assets/images/account-settings.png";
 
 import { Card } from "flowbite-react";
 
-export default function JobSeekerDashboardPage() {
+export default function CompanyDashboardPage() {
   return (
     <>
       <Card>
@@ -44,7 +44,7 @@ export default function JobSeekerDashboardPage() {
                   <a href="/company/settings">
                     <img
                       className="rounded-lg image-with-hover"
-                      src={JobSeekerAccountSettingsImage}
+                      src={CompanyAccountSettingsImage}
                       alt="image description"
                     />
                   </a>

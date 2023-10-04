@@ -2,6 +2,9 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import todosRouter from "./routes/todos.js";
+import userRouter from "./routes/users.js";
+import userAuthRouter from "./routes/userAuth.js";
+import registerRouter from "./routes/register.js";
 import jwtAuth from "./routes/jwtAuth.js";
 import dashboard from "./routes/dashboard.js";
 
@@ -20,6 +23,10 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 app.use("/api/todos/", todosRouter);
+app.use("/api/users/", userRouter);
+app.use("/auth/users", userAuthRouter);
+
+app.use("/register", registerRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello world");
@@ -38,6 +45,8 @@ app.get('/api/tests/', (req, res) => {
 app.get('*', (req, res) => {
   res.send('404 Page Not Found');
 });
+
+
 // register and login router 
 app.use('/auth', jwtAuth);
 

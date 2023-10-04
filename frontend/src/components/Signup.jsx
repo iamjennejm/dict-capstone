@@ -10,14 +10,73 @@ fields.forEach((field) => (fieldsState[field.id] = ""));
 
 export default function Signup() {
   const [signupState, setSignupState] = useState(fieldsState);
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  
+  const signUp = () => {
+    fetch("http://localhost:8081/api/users/register", {
+        method: "POST",
+        body: JSON.stringify({
+            email,
+            password,
+            username
+        }),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+        })
+        .catch((err) => console.error(err));
+   };
+  
 
   const handleChange = (e) =>
     setSignupState({ ...signupState, [e.target.id]: e.target.value });
 
-  const handleSubmit = (e) => {
+  /*const handleSubmit = (e) => {
     e.preventDefault();
     console.log(signupState);
+
+  };*/
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //👇🏻 Triggers the function
+    signUp();
+    setEmail("");
+    setUsername("");
+    setPassword("");
+    /*if (e) e.preventDefault();
+
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email,
+          password,
+          username
+      }),
+       
+    } 
+    fetch("http://localhost:8081/api/users/register", options)*/
+  }
+
+  /*const handleChange = (event) => {
+    event.persist();
+    setValues(values => ({ ...values, [event.target.name]: event.target.value }));
   };
+
+  return {
+    handleChange,
+    handleSubmit,
+    values,
+  }*/
 
   const firstGroupFields = fields.slice(0, Math.ceil(fields.length / 2));
   const secondGroupFields = fields.slice(Math.ceil(fields.length / 2));

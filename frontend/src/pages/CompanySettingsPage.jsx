@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import FooterLayout from "../layouts/FooterLayout";
 import UGJobsLogo from "../assets/images/UGJobsLogo.png";
-function ProfileSettings() {
+
+function CompanySettingsPage() {
   const [userData, setUserData] = useState({
     email: "company@example.com",
     password: "******",
@@ -103,4 +104,4 @@ function ProfileSettings() {
   );
 }
 
-export default ProfileSettings;
+export default CompanySettingsPage;

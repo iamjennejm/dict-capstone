@@ -18,6 +18,7 @@ import AboutUsPage from "./pages/AboutUsPage";
 import SignupJobseekerPage from "./pages/SignupJobseekerPage";
 import SignupEmployerPage from "./pages/SignupEmployerPage";
 import MyApplicationPage from "./pages/MyApplicationPage";
+
 const router = createBrowserRouter([
   {
     path: "/",

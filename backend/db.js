@@ -14,7 +14,6 @@ const { Pool } = pkg;
 
 const app = express(); 
 
-
 const connectToDB = async () => {
   const pool = new Pool({
     user: 'postgres',

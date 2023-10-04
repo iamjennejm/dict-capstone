@@ -2,7 +2,8 @@ import React from "react";
 import HeaderLayout from "../layouts/HeaderLayout";
 import FooterLayout from "../layouts/FooterLayout";
 import "../assets/styles/index.css";
-export default function JobSeekerProfilePage() {
+
+export default function CompanyProfilePage() {
   return (
     <>
       <div className="main">

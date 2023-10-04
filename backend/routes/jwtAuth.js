@@ -1,5 +1,6 @@
 import express from "express";
 import { sql } from "../db.js";
+import camelcaseKeys from "camelcase-keys";
 
 const router = express.Router();
 import bcrypt from "bcrypt";
@@ -13,9 +14,14 @@ import authorization from "../middlewares/authorization.js";
 //const validInfo = require("../middlewares/validInfo");
 //const authorization = require('../middlewares/authorization');
 
-
+import todosRouter from "../routes/todos.js";
+ 
 // register user
-
+todosRouter.get("/", async (req, res) => {
+    const todos = await sql`SELECT * FROM todos;`;
+     res.status(200).send(todos.map((todo) => camelcaseKeys(todo)));
+   });
+   
 router.post('/register', validInfo, async (req, res) => {
     try {
 
