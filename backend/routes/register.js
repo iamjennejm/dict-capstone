@@ -3,52 +3,111 @@ import { z } from "zod";
 import camelcaseKeys from "camelcase-keys";
 import { sql } from "../db.js";
 
-const todosRouter = express.Router();
+const registerRouter = express.Router();
 
-const TodoSchema = z.object({
-  task: z.string(),
-  isCompleted: z.boolean(),
-});
+registerRouter.post("/", async (req, res) => {
+  const newRegister = req.body;
 
-todosRouter.get("/", async (req, res) => {
-   
-    /*const todos = await sql`SELECT * FROM todos;`;
-    res.status(200).send(todos.map((todo) => camelcaseKeys(todo)));
-    */
-});
+  //const username = newRegister.user["username"];
+  const email = newRegister.user["email"];
+  const password = newRegister.user["password"];
+  const user_type = newRegister.user_type;
 
-todosRouter.get("/:id", async (req, res) => {
-  const { id } = req.params;
-  const [foundTodo] = await sql`SELECT * FROM todos WHERE id = ${Number(id)};`;
+  //const [checkUser] = await sql `SELECT FROM ugjobs_users WHERE email = (${email}) RETURNING *`;
 
-  if (foundTodo) {
-    res.status(200).send(foundTodo);
+  const [checkUser] = await sql `SELECT * FROM ugjobs_users WHERE email = ${email}`;
+
+  if (checkUser) {
+    res.status(404).send("user already exists");
   } else {
-    res.status(404).send("todo not found");
+    
+    const [createdUser] =
+    await sql `INSERT INTO ugjobs_users (email, password, type) VALUES (${email}, ${password}, ${user_type}) RETURNING *`;
+    res.status(201).send(camelcaseKeys(createdUser));
+
+      if(user_type == "employer"){    
+        const employer_name = newRegister.user["employer-name"];
+        const contact_number = newRegister.user["contact-number"];
+        const company_name = newRegister.user["company-name"];
+        const company_location = newRegister.user["company-address"];
+
+        const logo = "";
+        const employer_status = "new";
+
+        console.log(employer_name);
+        const [registerEmployer] =
+          await sql `INSERT INTO job_employers (employer_name, company_name, company_location, logo, contact_number, status) VALUES (${employer_name}, ${company_name}, ${company_location}, ${logo}, ${contact_number}, ${employer_status}) RETURNING *`;
+        
+          res.status(201).send(camelcaseKeys(registerEmployer));
+
+      }else if(user_type == "jobseeker"){
+        const first_name = newRegister.user["first_name"];
+        const middle_name = newRegister.user["middle_name"];
+        const last_name = newRegister.user["last_name"];
+      
+        const contact_number = newRegister.user["contact_number"];
+        const present_address = newRegister.user["present_address"];
+        const permanent_address = newRegister.user["permanent_address"];
+      
+        const school = newRegister.user["school"];
+        const school_address = newRegister.user["school_address"];
+        const student_id = newRegister.user["student_id"];
+        const photo = newRegister.user["photo"];
+      
+        const [registerJobSeeker] =
+          await sql `INSERT INTO job_seekers (first_name, middle_name, last_name, contact_number, present_address, permanent_address, school, school_address, student_id, photo) VALUES ( ${first_name}, ${middle_name}, ${last_name}, ${contact_number}, ${present_address}, ${permanent_address}, ${school}, ${school_address}, ${student_id}, ${photo}) RETURNING *`;
+         res.status(201).send(camelcaseKeys(registerJobSeeker));
+
+      }else {
+        res.status(401).send("Admin");
+      }
   }
-});
+   // return redirect("/login");
+}); 
 
-todosRouter.post("/", async (req, res) => {
-  const newTodo = req.body;
-  const parsedResult = TodoSchema.safeParse(newTodo);
+registerRouter.post("/jobseeker", async (req, res) => {
+  const newRegister = req.body;
+  const username = newRegister.signupState["username"];
+  const email = newRegister.signupState["email"];
+  const password = newRegister.signupState["password"];
 
-  if (!parsedResult.success) {
-    return res.status(400).send(
-      parsedResult.error.errors.map((err) => ({
-        field: err.path.join("."),
-        message: err.message,
-      }))
-    );
-  }
+  const [createdRegister] =
+    await sql `INSERT INTO ugjobs_users (username, email, password) VALUES (${username}, ${email}, ${password}) RETURNING *`;
+  
+  res.status(201).send(camelcaseKeys(createdRegister));
 
-  const [createdTodo] =
-    await sql `INSERT INTO todos (task, is_completed) VALUES (${newTodo.task}, ${newTodo.isCompleted}) RETURNING *`;
+ 
+}); 
 
-  // todos.push(newTodo);
-  res.status(201).send(camelcaseKeys(createdTodo));
-});
+registerRouter.post("/employer", async (req, res) => {
+  const newRegister = req.body;
+  const username = newRegister.signupState["username"];
+  const email = newRegister.signupState["email"];
+  const password = newRegister.signupState["password"];
+  console.log(newRegister);
+  res.status(201).send(newRegister);
+  /*const [createdUser] =
+    await sql `INSERT INTO ugjobs_users (username, email, password, user_type) VALUES (${username}, ${email}, ${password} , 'employer') RETURNING *`;
 
-todosRouter.put("/:id", async (req, res) => {
+  const employer_name = newRegister.signupState["employer_name"];
+  const company_name = newRegister.signupState["company_name"];
+  const company_location = newRegister.signupState["company_address"];
+
+  const logo = "logo";
+  const contact_number = newRegister.signupState["contact_number"];
+  const employer_status = "new";
+
+  const [registerEmployer] =
+    await sql `INSERT INTO job_employers (employer_name, company_name, company_location, logo, contact_number, employer_status) VALUES (${employer_name}, ${company_name}, ${company_location}, ${logo}, ${contact_number}, ${employer_status}) RETURNING *`;
+  
+    res.status(201).send(camelcaseKeys(registerEmployer));*/
+
+  
+}); 
+
+
+
+registerRouter.put("/:id", async (req, res) => {
   const { id } = req.params;
   const { task, isCompleted } = req.body;
 
@@ -68,7 +127,7 @@ todosRouter.put("/:id", async (req, res) => {
   }
 });
 
-todosRouter.delete("/:id", async (req, res) => {
+registerRouter.delete("/:id", async (req, res) => {
   const { id } = req.params;
 
   const [deletedTodo] = await sql`DELETE FROM todos WHERE id = ${Number(
@@ -82,4 +141,4 @@ todosRouter.delete("/:id", async (req, res) => {
   }
 });
 
-export default todosRouter;
+export default registerRouter; 

@@ -1,23 +1,44 @@
-import { useState } from "react";
-import { EmployersignupFields } from "./EmployerSignupFormFields";
+import { useEffect, useRef, useState } from "react";
+import { EmployerSignupFields } from "./EmployerSignupFormFields";
 import FormAction from "./FormAction";
 import Input from "./Input";
 
-const fields = EmployersignupFields;
+const fields = EmployerSignupFields;
 let fieldsState = {};
 
 fields.forEach((field) => (fieldsState[field.id] = ""));
 
-export default function Signup() {
+export default function EmployerSignup() {
   const [signupState, setSignupState] = useState(fieldsState);
-
-  const handleChange = (e) =>
+  
+const signUp = () => {
+    fetch("http://localhost:8081/api/register", {
+        method: "POST",
+        body: JSON.stringify({
+          user: signupState,
+          user_type: "employer"
+        }),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+        .then((res) => res.json)
+        .then((data) => {
+            console.log(data);
+        })
+        .catch((err) => console.error(err));
+   }; 
+  
+ const handleChange = (e) =>
     setSignupState({ ...signupState, [e.target.id]: e.target.value });
 
   const handleSubmit = (e) => {
+    // prevent the form from refreshing the whole page
     e.preventDefault();
-    console.log(signupState);
-  };
+    //👇🏻 Triggers the function
+     signUp();
+
+  } 
 
   const firstGroupFields = fields.slice(0, Math.ceil(fields.length / 2));
   const secondGroupFields = fields.slice(Math.ceil(fields.length / 2));

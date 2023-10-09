@@ -4,7 +4,7 @@ import EmployerSignup from "../components/EmployerSignup";
 import FooterLayout from "../layouts/FooterLayout";
 import UGJobsLogo from "../assets/images/UGJobsLogo.png";
 
-export default function employerSignup() {
+export default function SignupEmployerPage() {
   return (
     <>
       <div className="page-content p-20">

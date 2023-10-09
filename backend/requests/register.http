@@ -1,0 +1,29 @@
+GET http://localhost:8081/api/registers
+
+###
+
+POST http://localhost:8081/api/register
+Content-Type: application/json
+
+{
+  "email": "jj@gmail.com",
+  "password": '1234'
+}
+
+### 
+
+POST http://localhost:8081/api/register
+Content-Type: application/json
+
+
+###
+
+PUT http://localhost:8081/api/register
+Content-Type: application/json
+
+{
+  "email": "222",
+  "password": 'true'
+}
+
+
