@@ -142,7 +142,7 @@ export default function EmployerSignup() {
           id="Terms-conditions"
           name="Terms-conditions"
           type="checkbox"
-          className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+          className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
         />
         <label
           htmlFor="Terms-conditions"
@@ -156,7 +156,7 @@ export default function EmployerSignup() {
           id="Privacy-policy"
           name="Privacy-policy"
           type="checkbox"
-          className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+          className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
         />
         <label
           htmlFor="Privacy-policy"

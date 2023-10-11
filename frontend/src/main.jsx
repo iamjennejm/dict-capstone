@@ -7,22 +7,19 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import ErrorPage from "./pages/ErrorPage";
 import JobsPage from "./pages/JobsPage";
-
 import CompaniesPage from "./pages/CompaniesPage";
 import CompanyProfilePage from "./pages/CompanyProfilePage";
 import CompanyDashboardPage from "./pages/CompanyDashboardPage";
 import CompanySettingsPage from "./pages/CompanySettingsPage";
-
 import ProfilesPage from "./pages/ProfilesPage";
 import JobSeekerProfilePage from "./pages/JobSeekerProfilePage";
 import JobSeekerResumePage from "./pages/JobSeekerResumePage";
 import JobSeekerDashboardPage from "./pages/JobSeekerDashboardPage";
-
 import SignupJobseekerPage from "./pages/SignupJobseekerPage";
+import JobSeekerSettingsPage from "./pages/JobSeekerSettingsPage";
 import SignupEmployerPage from "./pages/SignupEmployerPage";
 import MyApplicationPage from "./pages/MyApplicationPage";
 import ReviewPage from "./pages/ReviewPage";
-
 import AboutUsPage from "./pages/AboutUsPage";
 
 
@@ -78,6 +75,12 @@ const router = createBrowserRouter([
     element: <MyApplicationPage />,
     errorElement: <ErrorPage />,
   },
+  {
+    path: "/jobseeker/settings",
+    element: <JobSeekerSettingsPage />,
+    errorElement: <ErrorPage />,
+  },
+  
   {
     path: "/jobseeker",
     element: <JobSeekerDashboardPage />,

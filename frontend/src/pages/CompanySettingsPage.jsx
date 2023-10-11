@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import FooterLayout from "../layouts/FooterLayout";
 import UGJobsLogo from "../assets/images/UGJobsLogo.png";
+import {useNavigate} from 'react-router-dom';
+
 
 function CompanySettingsPage() {
   const [userData, setUserData] = useState({
     email: "company@example.com",
     password: "******",
+    confirmPassword: "******",
     companyName: "Company Inc",
     companyAddress: "123 Company St",
     phoneNumber: "0917-123-4445",
@@ -19,7 +22,13 @@ function CompanySettingsPage() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("User data updated:", userData);
+
+    if (userData.password !== userData.confirmPassword) {
+      alert("Passwords do not match. Please confirm your password.");
+      return;
+    }
   };
+
 
   const handleDeleteAccount = () => {
     const confirmDelete = window.confirm(
@@ -27,17 +36,24 @@ function CompanySettingsPage() {
     );
 
     if (confirmDelete) {
-      // TODO: Implement logic to delete the user's account
+
+    /*  Edit to delete the user's account*/
+    //TODO:
       console.log("Account deleted");
     }
+  };
+
+  const navigate = useNavigate();
+	const clickHandler = () => {
+		navigate('/company', {replace: true});
   };
 
   return (
     <>
       <div className="profile-settings">
-        <div className="logo-container">
-          <img alt="UGJobs" className="w-48 p-4" src={UGJobsLogo} />
-        </div>
+        <a href="/">
+            <img alt="UGJobs" className="UgLogoMain" src={UGJobsLogo} />
+          </a>
         <h2>Account Settings</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -71,6 +87,17 @@ function CompanySettingsPage() {
             />
           </div>
           <div className="form-group">
+          <label htmlFor="confirmPassword">Confirm Password:</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              value={userData.confirmPassword}
+              onChange={handleUserDataChange}
+              />
+              </div>
+              
+          <div className="form-group">
             <label htmlFor="companyAddress">Company Address:</label>
             <input
               type="text"
@@ -81,7 +108,7 @@ function CompanySettingsPage() {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="phoneNumber">Phone Number:</label>
+            <label htmlFor="phoneNumber">Contact Number:</label>
             <input
               type="text"
               id="phoneNumber"
@@ -89,14 +116,14 @@ function CompanySettingsPage() {
               value={userData.phoneNumber}
               onChange={handleUserDataChange}
             />
+          </div >
+          <div className="buttonsettings">
+          <button className='back-button'onClick={clickHandler}>Back</button>
+          <button className='save-button' type="submit">Save</button>
+          <span className="delete-account-link" onClick={handleDeleteAccount}>
+             "Delete Account!"
+          </span>
           </div>
-          <button type="submit">Save Changes</button>
-          <button
-            className="delete-account-button"
-            onClick={handleDeleteAccount}
-          >
-            Delete Account
-          </button>
         </form>
       </div>
       <FooterLayout />

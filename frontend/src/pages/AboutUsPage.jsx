@@ -9,7 +9,7 @@ import ContactUsForm from "../layouts/ContactUsLayout";
 
 export default function AboutUsPage() {
   return (
-    <>
+    <div classNames="aboutsusmain">
       <HeaderLayout />
       <div
         style={{
@@ -19,8 +19,10 @@ export default function AboutUsPage() {
           minHeight: "100vh",
         }}
       >
-        <AboutUsLayout />
+        <div className=".Carouselborder">
+        <AboutUsLayout /></div>
         <h1 style={{ textAlign: "Left" }}>About Us</h1>
+        
         <div class="center-container">
           <div class="center-content">
             <Carousel
@@ -57,6 +59,7 @@ export default function AboutUsPage() {
                   </p2>
                 </p2>
               </div>
+
               <div style={carouselItemStyle}>
                 <p style={carouselText}>
                   <h2>Mission</h2>
@@ -123,16 +126,18 @@ export default function AboutUsPage() {
         <ContactUsForm />
       </div>
       <FooterLayout />
-    </>
+    </div>
   );
 }
 
 const carouselItemStyle = {
+
   background: "#f9f9f9",
   borderRadius: "10px",
   boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
   maxWidth: "700px",
   margin: "0 auto",
+  padding: "50px",
 };
 
 const carouselText = {

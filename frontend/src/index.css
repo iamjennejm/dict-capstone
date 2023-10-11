@@ -23,7 +23,7 @@ body {
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #000000;
   text-decoration: inherit;
 }
 a:hover {
@@ -56,24 +56,6 @@ h3 {
   color: #000000;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -81,11 +63,9 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: #000000;
   }
-  button {
-    background-color: #f9f9f9;
-  }
+
 }
 
 .full-width-navbar {
@@ -96,53 +76,3 @@ p2 {
   text-align: center;
 }
 
-/* trial*/
-.App {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.review-container {
-  margin: 0 auto;
-  width: 300px;
-  text-align: center;
-  padding: 1rem;
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.star-rating {
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-.star {
-  color: #ccc;
-  transition: color 0.3s;
-  margin: 0 0.1rem;
-}
-
-.star.filled {
-  color: gold;
-}
-
-button {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.reviews {
-  margin-top: 2rem;
-}
-
-.review {
-  margin: 1rem 0;
-  border: 1px solid #ccc;
-  padding: 1rem;
-  background-color: #f9f9f9;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}

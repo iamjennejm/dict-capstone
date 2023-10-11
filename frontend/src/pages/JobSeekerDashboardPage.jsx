@@ -10,10 +10,9 @@ import { Card } from "flowbite-react";
 export default function JobSeekerDashboardPage() {
   return (
     <>
+    <HeaderLayout />
       <Card>
-        <main className="container mx-auto">
-          <HeaderLayout />
-
+        <main className="">
           <section className="flex justify-center items-center">
             <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16 text-center">
               <h2 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
@@ -42,7 +41,7 @@ export default function JobSeekerDashboardPage() {
                   <div className="mt-2">My Applications</div>
                 </div>
                 <div className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col items-center justify-center">
-                  <a href="/">
+                  <a href="/jobseeker/settings">
                     <img
                       className="rounded-lg image-with-hover"
                       src={JobSeekerAccountSettingsImage}

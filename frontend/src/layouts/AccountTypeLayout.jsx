@@ -18,9 +18,6 @@ const ImageButton = ({ image, to, buttonText }) => {
     flexDirection: "column",
   };
 
-  const textStyle = {
-    marginTop: "5px",
-  };
 
   return (
     <Link to={to} style={{ textDecoration: "none" }}>
@@ -39,38 +36,38 @@ const App = () => {
   };
 
   const buttonContainerStyle = {
-    margin: "10px",
+    margin: "20px",
   };
 
   return (
     <div style={containerStyle}>
       <div
-        className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col items-center justify-center"
+        className="AccountBorder"
         style={buttonContainerStyle}
       >
         <a href="/signupjobseeker">
           <img
-            className="rounded-lg image-with-hover"
+            className=" AccountBorder2 rounded-lg image-with-hover shadow-2xl"
             src={buttonImage1}
             alt="image description"
           />
         </a>
-        <div className="mt-2">Job Seeker</div>
+        <div className="mt-2 text-center text-xl">Job Seeker</div>
       </div>
-
       <div
-        className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col items-center justify-center"
+        className="AccountBorder"
         style={buttonContainerStyle}
       >
         <a href="/signupemployer">
           <img
-            className="rounded-lg image-with-hover"
+            className="AccountBorder2 rounded-lg image-with-hover shadow-2xl"
             src={buttonImage2}
             alt="image description"
           />
         </a>
-        <div className="mt-2">Employer</div>
+        <div className="mt-2 text-center text-xl">Employer</div>
       </div>
+      
     </div>
   );
 };

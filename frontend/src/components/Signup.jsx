@@ -82,11 +82,11 @@ export default function Signup() {
   const secondGroupFields = fields.slice(Math.ceil(fields.length / 2));
 
   return (
-    <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+    <form className="signupform" onSubmit={handleSubmit}>
       <div className="flex">
-        <div className="w-1/2 border rounded p-4">
+        <div className="boardersignupseeker">
           {firstGroupFields.map((field) => (
-            <div key={field.id} className="mb-4">
+            <div key={field.id} className="">
               <label
                 htmlFor={field.id}
                 className="block text-sm font-medium text-gray-700 text-left"
@@ -105,9 +105,9 @@ export default function Signup() {
             </div>
           ))}
         </div>
-        <div className="w-1/2 border rounded p-4">
+        <div className="boardersignup2">
           {secondGroupFields.map((field) => (
-            <div key={field.id} className="mb-4">
+            <div key={field.id} className="">
               <label
                 htmlFor={field.id}
                 className="block text-sm font-medium text-gray-700 text-left"
@@ -127,12 +127,12 @@ export default function Signup() {
           ))}
         </div>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center pt-10">
         <input
           id="Terms-conditions"
           name="Terms-conditions"
           type="checkbox"
-          className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+          className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
         />
         <label
           htmlFor="Terms-conditions"
@@ -141,12 +141,12 @@ export default function Signup() {
           I agree to the terms and conditions.
         </label>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center pt-5">
         <input
           id="Privacy-policy"
           name="Privacy-policy"
           type="checkbox"
-          className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+          className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
         />
         <label
           htmlFor="Privacy-policy"
@@ -155,11 +155,11 @@ export default function Signup() {
           I agree to Privacy Policy.
         </label>
       </div>
-      <div className="flex justify-center items-center h-full">
+      <div className="pt-5">
         <FormAction
           handleSubmit={handleSubmit}
           text="Signup"
-          buttonClass="px-3 py-1 text-xs"
+          buttonClass=""
         />
       </div>
     </form>

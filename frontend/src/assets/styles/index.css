@@ -6,8 +6,26 @@ html {
   height: 100%;
 }
 body {
-  min-height: 100%;
+ 
+  background-image: url(../images/background.jpg);
+  background-repeat: no-repeat;
+  background-size:cover;
+  margin: 0;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
 }
+
+.navbar-custom {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: solid 1px;
+  border-color: #ccc;
+}
+
+.Footerborder{
+  padding-bottom: 15px;
+}
+
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -27,25 +45,20 @@ body {
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #3675f1;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #001aff;
 }
 
-body {
-  margin: 0;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
 
 h1 {
   font-size: 3.2em;
   line-height: 2;
   color: #000000;
 }
+
 
 h2 {
   font-size: 2em;
@@ -59,35 +72,166 @@ h3 {
   color: #000000;
 }
 
+.remember{
+margin-left: 6px;
+}
+/*Logo at images section*/
+.ugLogo{
+  width: 130px;
+}
+.UgLogoMain {
+  position: absolute;
+  width: 250px;
+  right: 3%;
+  top: 20px;
+}
+
+.loginlogo{
+  width: 140px;
+  position: relative;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  top: 30px;
+  opacity: 60%;
+  margin-bottom: 40px;
+}
+
+/*buttons dito mag edit*/
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
+  outline: 0;
+  color: #fff;
+  background-color: #1C64F2;
+  border-color: #0d6efd;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  border: 1px solid;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+
 button:hover {
-  border-color: rgb(100, 108, 255);
+  color: #fff;
+  background-color: #1A56DB;
+  border-color: #1A56DB;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+/*settings button*/
+.buttonsettings{
+  position: relative;
+  align-items: left;
 }
+
+.back-button{
+  background-color: #ffffff;
+  color: #1C64F2;
+  border: solid 1px #1C64F2;
+  border-radius: 4px;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 15px;
+}
+.back-button:hover{
+  color: #fff;
+  background-color: #1A56DB;
+  border-color: #1A56DB;
+}
+.save-button{
+  margin-right: 15px;
+  padding: 12px 30px;
+}
+.delete-account-link{
+  color: #ff0800;
+  cursor: pointer;
+  font-style: italic;
+  margin-left: 80px;
+}
+
+
+/*login form*/
+
+.loginform{
+  position: relative;
+  border: solid 1px inset;
+  border-radius: 10px;
+  border-color: #eeeeee;
+align-items: center;
+margin-left: 460px;
+margin-right: 460px;
+padding-top: 5px;
+padding-right: 20px;
+padding-left: 20px;
+padding-bottom: 15px;
+}
+
+.AccountBorder{
+width: 150px;
+padding: 5px;
+margin-bottom: 50px;
+}
+.AccountBorder2{
+width: 150px;
+border: 2px solid ;
+border-color: #d3d3d3;
+}
+
+/*Signup boarder styles*/
+.signupform{
+  position: relative;
+  justify-content: space-between ;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-bottom: 40px;
+  padding-top: 80px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+
+.boardersignup
+{
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  width: 50%;
+ padding: 20px;
+ margin-right:20px;
+
+}
+.boardersignupseeker
+{
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  width: 50%;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  padding-top: 40px;
+ margin-right:20px;
+
+}
+
+.boardersignup2 {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  width: 50%;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  padding-top: 40px;
+}
+
+
+
+
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: #353434;
     background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
   }
 }
 
@@ -117,13 +261,14 @@ button:focus-visible {
   opacity: 0.5;
 }
 
+
 .opacity-transition:hover {
   opacity: 1;
 }
 
 .image-box {
   position: relative;
-  margin: 10;
+  margin: 10px;
 }
 
 .description-box {
@@ -178,34 +323,35 @@ button:focus-visible {
 
 .image-with-hover:hover {
   transform: translateY(5px);
-  box-shadow: 0 0 10px rgb(100, 108, 255);
+  box-shadow: 0 0 30px #1A56DB;
 }
 /* Sa Profile settings na design*/
 .profile-settings {
-  max-width: 400px;
+  max-width: 500px;
   margin: 0 auto;
-  padding: 20px;
-  background-color: #f9f9f9;
+  padding: 50px;
+  font-size: large;
+  background-color: #f9f9f9 transparent;
   border: 1px solid #ddd;
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   text-align: center;
+}
+.formsettings{
+  margin-top: 20px;
 }
 
 .profile-settings h2 {
-  font-size: 24px;
+  font-size: 30px;
   margin-bottom: 20px;
+  margin-top: -5px;
 }
 
 .form-group {
-  margin-bottom: 15px;
+  padding-bottom: 10px;
   text-align: left;
 }
 
-label {
-  display: block;
-  font-weight: bold;
-}
 
 input[type="text"],
 input[type="email"],
@@ -219,7 +365,7 @@ input[type="password"] {
 
 button[type="submit"],
 button.delete-account-button {
-  background-color: rgb(100, 108, 255);
+  background-color: #1C64F2;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -229,18 +375,8 @@ button.delete-account-button {
   margin-top: 10px;
 }
 
-button[type="submit"]:hover,
-button.delete-account-button:hover {
-  background-color: rgb(45, 55, 241);
-}
-
-button.delete-account-button {
-  background-color: #d9534f;
-  margin-left: 20px;
-}
-
-button.delete-account-button:hover {
-  background-color: #c9302c;
+button[type="submit"]:hover{
+  background-color: #1A56DB;
 }
 
 .logo-container {
@@ -249,4 +385,77 @@ button.delete-account-button:hover {
   align-items: center;
   margin-bottom: 2px;
   margin-top: -10px;
+}
+
+/*Job Seeker Profile*/
+
+.ProfileMain{
+  border:solid 2px transparent transparent;
+  border-color: #ebebeb;  
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 40px;
+}
+
+.image-containermain{
+  padding: 30px;
+  border:solid 3px transparent transparent; 
+  border-color: #dbdbdb;  
+  border-radius: 10px;
+  align-items: center;
+
+}
+
+.image-container2 {
+  display: flex;
+  border:solid 2px transparent transparent;
+  border-color: #c7c7c7;  
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding-top:30px;
+  padding-bottom:50px;
+  padding-left:30px;
+  padding-right:30px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.image-container2 img {
+  position: relative,absolute;
+  margin: 10 15px;
+  border-radius: 50%;
+  width: 150px;
+  height: auto;
+  box-shadow: rgba(0, 0, 0, 01) 0px 5px 15px;
+  align-items: center;
+  margin-right: 30px;
+  margin-bottom: 15px;
+}
+
+.carousel1{
+  width: 100%;
+  padding: 50px;
+  border: solid 1px ;
+  border-color: black;
+  box-shadow: rgba(0, 0, 0, 01) 0px 5px 15px;
+}
+.center-content{
+  position: relative;
+  margin-top: 200px;
+}
+.aboutusmain{
+  border: solid 1px ;
+  border-color: black;
+  box-shadow: rgba(0, 0, 0, 01) 0px 5px 15px;
+}
+.jobs-listing{
+  margin-top: 50px;
+}
+
+.companyborder{
+  border: solid 1px ;
+  border-color: black;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 01) 0px 5px 15px;
+  padding: 20px;
 }

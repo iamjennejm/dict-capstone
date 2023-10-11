@@ -17,6 +17,7 @@ function HeaderLayout() {
       <Navbar
         fluid
         rounded
+        className="navbar-custom shadow-xl" 
       >
         <Navbar.Brand
           href=""
@@ -35,13 +36,11 @@ function HeaderLayout() {
           ))}
 
         </Navbar.Collapse>
-        <div className="loginBtn">
         <a href="/login">
-          <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+          <button className="loginBtn">
             Login
           </button>
         </a>
-        </div>
       </Navbar>
       
   )
